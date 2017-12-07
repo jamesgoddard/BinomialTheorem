@@ -1,0 +1,41 @@
+import java.util.Scanner;
+
+public class BinomialTheorem {
+	private static double a = 0;
+	private static double b = 0;
+	private static double n = -1;
+	private static double total = 0;
+	private static boolean running = true;
+	
+	public static void main(String[]args) {
+		Scanner sc = new Scanner(System.in);
+		while(running) {
+			System.out.println("Enter a:");
+			a = sc.nextDouble();
+			sc.nextLine();
+			
+			System.out.println("Enter b:");
+			b = sc.nextDouble();
+			sc.nextLine();
+			
+			while (n < 0) {
+				System.out.println("Enter a positive n:");
+				n = sc.nextInt();
+				sc.nextLine();
+			}			
+			
+			System.out.println("Calculate (" + a + " + " + b + ")^" + n + "? (Y/N)");
+			if(sc.next().equalsIgnoreCase("y")) {
+				total = (a + b);
+				total = Math.pow(total, n);
+				System.out.println("The total is " + total);
+				System.out.println("Enter another binomial theorem? (Y/N)");
+			}
+			sc.nextLine();
+			if(sc.nextLine().equalsIgnoreCase("n")) {
+				System.out.println("Goodbye.");
+				running = false;
+			}
+		}
+	}
+}
